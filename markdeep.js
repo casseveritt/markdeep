@@ -1627,11 +1627,11 @@ function diagramToSVG(diagramString, alignmentHint) {
                     do { grid.setUsed(x, y); ++x; ++y; } while (grid.isSolidBLineAt(x, y));
                     var B = Vec2(x - 1, y - 1);
 
-                    if ((grid(A.x, A.y - 1) === '/') || (grid(A.x - 1, A.y - 1) === '_') || (grid(A.x, A.y - 1) === '_')) {
+                    if ((grid(A.x, A.y - 1) === '/') || (grid(A.x - 1, A.y - 1) === '_') || (grid(A.x, A.y - 1) === '_') || (grid(A.x - 1, A.y - 1) === '+')) {
                         // Special case corner; continue half a cell more to connect
                         A.x -= 0.5; A.y -= 0.5;
                     }
-                    if ((grid(B.x, B.y + 1) === '/') || (grid(B.x + 1, B.y) === '_') || (grid(B.x - 1, B.y) === '_')) {
+                    if ((grid(B.x, B.y + 1) === '/') || (grid(B.x + 1, B.y) === '_') || (grid(B.x - 1, B.y) === '_') || (grid(B.x + 1, B.y + 1) === '+')) {
                         // Special case corner; continue half a cell more to connect
                         B.x += 0.5; B.y += 0.5;
                     }
@@ -1652,11 +1652,11 @@ function diagramToSVG(diagramString, alignmentHint) {
                     do { grid.setUsed(x, y); ++x; --y; } while (grid.isSolidDLineAt(x, y));
                     var B = Vec2(x - 1, y + 1);
 
-                    if ((grid(B.x, B.y - 1) === '\\') || (grid(B.x, B.y - 1) === '_') || (grid(B.x + 1, B.y - 1) === '_')) {
+                    if ((grid(B.x, B.y - 1) === '\\') || (grid(B.x, B.y - 1) === '_') || (grid(B.x + 1, B.y - 1) === '_') || (grid(B.x + 1, B.y - 1) === '+')) {
                         // Special case corner; continue half a cell more to connect
                         B.x += 0.5; B.y -= 0.5;
                     }
-                    if ((grid(A.x, A.y + 1) === '\\') || (grid(A.x - 1, A.y) === '_') || (grid(A.x + 1, A.y) === '_')) {
+                    if ((grid(A.x, A.y + 1) === '\\') || (grid(A.x - 1, A.y) === '_') || (grid(A.x + 1, A.y) === '_') || (grid(A.x - 1, A.y + 1) === '+')) {
                         // Special case corner; continue half a cell more to connect
                         A.x -= 0.5; A.y += 0.5;
                     }
@@ -1884,8 +1884,14 @@ function diagramToSVG(diagramString, alignmentHint) {
                         } else if (pathSet.diagonalUpEndsAt(x, y)) {
                             decorationSet.insert(x, y, '>', 270 + DIAGONAL_ANGLE);
                             grid.setUsed(x, y);
+                        } else if (pathSet.diagonalUpEndsAt(x + 0.5, y - 0.5)) {
+                            decorationSet.insert(x + 0.5, y - 0.5, '>', 270 + DIAGONAL_ANGLE);
+                            grid.setUsed(x, y);
                         } else if (pathSet.backDiagonalUpEndsAt(x, y)) {
                             decorationSet.insert(x, y, c, 270 - DIAGONAL_ANGLE);
+                            grid.setUsed(x, y);
+                        } else if (pathSet.backDiagonalUpEndsAt(x - 0.5, y - 0.5)) {
+                            decorationSet.insert(x - 0.5, y - 0.5, c, 270 - DIAGONAL_ANGLE);
                             grid.setUsed(x, y);
                         } else if (pathSet.verticalPassesThrough(x, y)) {
                             // Only try this if all others failed
@@ -1902,8 +1908,14 @@ function diagramToSVG(diagramString, alignmentHint) {
                         } else if (pathSet.diagonalDownEndsAt(x, y)) {
                             decorationSet.insert(x, y, '>', 90 + DIAGONAL_ANGLE);
                             grid.setUsed(x, y);
+                        } else if (pathSet.diagonalDownEndsAt(x - 0.5, y + 0.5)) {
+                            decorationSet.insert(x - 0.5, y + 0.5, '>', 90 + DIAGONAL_ANGLE);
+                            grid.setUsed(x, y);
                         } else if (pathSet.backDiagonalDownEndsAt(x, y)) {
                             decorationSet.insert(x, y, '>', 90 - DIAGONAL_ANGLE);
+                            grid.setUsed(x, y);
+                        } else if (pathSet.backDiagonalDownEndsAt(x + 0.5, y + 0.5)) {
+                            decorationSet.insert(x + 0.5, y + 0.5, '>', 90 - DIAGONAL_ANGLE);
                             grid.setUsed(x, y);
                         } else if (pathSet.verticalPassesThrough(x, y)) {
                             // Only try this if all others failed
