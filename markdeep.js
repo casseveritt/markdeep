@@ -1,6 +1,6 @@
 /**
   markdeep.js
-  Version 0.05
+  Version 0.06
 
   Copyright 2015, Morgan McGuire, http://casual-effects.com
   All rights reserved.
@@ -72,11 +72,11 @@ function entag(tag, content) {
 }
 
 var BODY_STYLESHEET = entag('style', 'body { max-width: 680px;' +
-    'margin: auto;' +
-    'padding: 20px;' +
-    'text-align: justify;' +
-    'line-height: 139%; ' +
-    'color: #222;' +
+    'margin:auto;' +
+    'padding:20px;' +
+    'text-align:justify;' +
+    'line-height:139%; ' +
+    'color:#222;' +
     'font-family: Palatino,Georgia,"Times New Roman",serif;}');
 
 /** You can embed your own stylesheet AFTER the <script> tags in your
@@ -87,17 +87,17 @@ var STYLESHEET = entag('style',
     '}' +
 
     '.md div.title{' +
-    'font-size: 26px;' +
-    'font-weight: 800;' +
-    'padding-bottom: 0px;' +
-    'line-height: 120%;' +
-    'text-align: center;' +
+    'font-size:26px;' +
+    'font-weight:800;' +
+    'padding-bottom:0px;' +
+    'line-height:120%;' +
+    'text-align:center;' +
     '}' +
 
     '.md div.afterTitles{height:0px;}' +
 
     '.md div.subtitle{' +
-    'text-align: center;' +
+    'text-align:center;' +
     '}' +
 
     '.md div.title, h1, h2, h3, h4, h5, h6, .md .shortTOC, .md .longTOC {' +
@@ -105,43 +105,43 @@ var STYLESHEET = entag('style',
     '}' +
 
     '.md svg.diagram{' +
-    'display: block;' +
-    'font-family: Menlo,\'Lucida Console\',monospace;'+ 
-    'font-size: 12px;' +
-    'text-align: center;' +
+    'display:block;' +
+    'font-family:Menlo,\'Lucida Console\',monospace;'+ 
+    'font-size:12px;' +
+    'text-align:center;' +
     'stroke-linecap:round;' +
     'stroke-width:' + STROKE_WIDTH + 'px;'+
     '}' +
 
     'h1{' +
-    'padding-bottom: 3px;' +
-    'padding-top: 15px;' +
-    'border-bottom: 3px solid;' +
-    'border-top: none;' +
-    'font-size: 20px;' +
+    'padding-bottom:3px;' +
+    'padding-top:15px;' +
+    'border-bottom:3px solid;' +
+    'border-top:none;' +
+    'font-size:20px;' +
     'counter-reset: h2 h3 h4 h5 h6;' +
     'clear:both;' +
     '}' +
 
     'h2{' +
     'counter-reset: h3 h4 h5 h6;' +
-    'font-family: Helvetica, Arial, sans-serif;' +
-    'padding-bottom: 3px; ' +
-    'padding-top: 15px;' +
-    'border-bottom: 2px solid #999;' +
-    'border-top: none;' +
-    'color: #555;' +
-    'font-size: 18px;' +
+    'font-family:Helvetica,Arial,sans-serif;' +
+    'padding-bottom:3px;' +
+    'padding-top:15px;' +
+    'border-bottom:2px solid #999;' +
+    'border-top:none;' +
+    'color:#555;' +
+    'font-size:18px;' +
     'clear:both;' +
     '}' +
 
     'h3, h4, h5, h6{' +
-    'font-family: Helvetica, Arial, sans-serif;' +
-    'padding-bottom: 3px;' +
-    'padding-top: 15px;' +
-    'border-top: none;' +
-    'color: #555;' +
-    'font-size: 16px;' +
+    'font-family:Helvetica,Arial,sans-serif;' +
+    'padding-bottom:3px;' +
+    'padding-top:15px;' +
+    'border-top:none;' +
+    'color:#555;' +
+    'font-size:16px;' +
     'clear:both;' +
     '}' +
 
@@ -150,44 +150,44 @@ var STYLESHEET = entag('style',
     'h5{counter-reset: h6;}' +
 
     '.md table{' +
-    'margin: auto;' +
-    'border-collapse: collapse;' +
+    'margin:auto;' +
+    'border-collapse:collapse;' +
     '}' +
 
     '.md th{' +
-    'color: #FFF;' +
-    'background-color: #AAA;' +
-    'border: 1px solid #888;' +
+    'color:#FFF;' +
+    'background-color:#AAA;' +
+    'border:1px solid #888;' +
      // top right bottom left
-    'padding: 8px 15px 8px 15px;' +
+    'padding:8px 15px 8px 15px;' +
     '}' +
 
     '.md td{' +
      // top right bottom left
-    'padding: 5px 15px 5px 15px;' +
-    'border: 1px solid #888;' +
+    'padding:5px 15px 5px 15px;' +
+    'border:1px solid #888;' +
     '}' +
 
     '.md tr:nth-child(even){'+
-    'background: #EEE;' +
+    'background:#EEE;' +
     '}' +
 
     '.md a:link, .md a:visited{color:#38A;text-decoration:none;}' +
     '.md a:hover{text-decoration:underline}' +
 
     '.md dt{' +
-    'font-weight: 700;' +
+    'font-weight:700;' +
     '}' +
 
     '.md dd{' +
-    'padding-bottom: 18px;' +
+    'padding-bottom:18px;' +
     '}' +
 
     '.md code{' +
-    'white-space: pre;' +
+    'white-space:pre;' +
     '}' +
 
-    '.markdeepFooter{font-size:9px; text-align:right; padding-top:80px; color:#999;}' +
+    '.markdeepFooter{font-size:9px;text-align:right;padding-top:80px;color:#999;}' +
 
     '.md .longTOC{float:right;font-size:12px;line-height:15px;border-left:1px solid #CCC;padding-left:15px;margin:15px 0px 15px 25px;}' +
      
@@ -834,7 +834,7 @@ function markdeepToHTML(str, elementMode) {
         // interference. Don't process back ticks inside of code
         // fences.
         s = mapTextBlock(s, function (s) {
-            return s.rp(/(`)(.+?)(`)/g, '<code>$2</code>');
+            return s.rp(/(`)(.+?)(`)/g, entag('code', '$2'));
         });
 
         // Escape angle brackets inside code blocks
@@ -1053,12 +1053,13 @@ function diagramToSVG(diagramString, alignmentHint) {
     var UNDIRECTED_VERTEX_CHARACTERS     = "+";
     var VERTEX_CHARACTERS                = UNDIRECTED_VERTEX_CHARACTERS + ".'";
 
-    function isUndirectedVertex(c) { return UNDIRECTED_VERTEX_CHARACTERS.indexOf(c) !== -1; }
+    function isUndirectedVertex(c) { return UNDIRECTED_VERTEX_CHARACTERS.indexOf(c) + 1; }
     function isVertex(c)           { return VERTEX_CHARACTERS.indexOf(c) !== -1; }
     function isTopVertex(c)        { return isUndirectedVertex(c) || (c === '.'); }
     function isBottomVertex(c)     { return isUndirectedVertex(c) || (c === "'"); }
     function isVertexOrLeftDecoration(c){ return isVertex(c) || (c === '<') || isPoint(c); }
     function isVertexOrRightDecoration(c){return isVertex(c) || (c === '>') || isPoint(c); }
+    function isArrowHead(c)        { return ARROW_HEAD_CHARACTERS.indexOf(c) + 1; }
 
     // "D" = Diagonal slash (/), "B" = diagonal Backslash (\)
     // Characters that may appear anywhere on a solid line
@@ -1067,9 +1068,9 @@ function diagramToSVG(diagramString, alignmentHint) {
     function isSolidVLine(c)       { return (c === '|') || isUndirectedVertex(c); }
     function isSolidDLine(c)       { return (c === '/') || isUndirectedVertex(c) }
     function isSolidBLine(c)       { return (c === '\\') || isUndirectedVertex(c); }
-    function isJump(c)             { return JUMP_CHARACTERS.indexOf(c) !== -1; }
-    function isPoint(c)            { return POINT_CHARACTERS.indexOf(c) !== -1; }
-    function isDecoration(c)       { return DECORATION_CHARACTERS.indexOf(c) !== -1; }
+    function isJump(c)             { return JUMP_CHARACTERS.indexOf(c) + 1; }
+    function isPoint(c)            { return POINT_CHARACTERS.indexOf(c) + 1; }
+    function isDecoration(c)       { return DECORATION_CHARACTERS.indexOf(c) + 1; }
     function isEmpty(c)            { return c === ' '; }
    
     ///////////////////////////////////////////////////////////////////////////////
@@ -1477,14 +1478,26 @@ function diagramToSVG(diagramString, alignmentHint) {
 
     var DS = DecorationSet.prototype;
 
-    /** angle is the angle in degrees to rotate the result by s\hycgh*/
+    /** insert(x, y, type, <angle>)  
+        insert(vec, type, <angle>)
+
+        angle is the angle in degrees to rotate the result */
     DS.insert = function(x, y, type, angle) {
         if (type === undefined) { type = y; y = x.y; x = x.x; }
-        angle = angle || 0;
+
         if (! isDecoration(type)) {
             console.error('Illegal decoration character: ' + type); 
         }
-        this._decorationArray.push({C: Vec2(x, y), type: type, angle:angle});
+        var d = {C: Vec2(x, y), type: type, angle:angle || 0};
+
+        // Put arrows at the front and points at the back so that
+        // arrows always draw under points
+
+        if (isPoint(type)) {
+            this._decorationArray.push(d);
+        } else {
+            this._decorationArray.unshift(d);
+        }
     };
 
 
@@ -1508,15 +1521,15 @@ function diagramToSVG(diagramString, alignmentHint) {
 
                 svg += '<circle cx="' + (C.x * SCALE) + '" cy="' + (C.y * SCALE * ASPECT) +
                        '" r="' + (SCALE - STROKE_WIDTH) + '" style="fill:' +
-                    ((decoration.type === '*') ? 'black' : 'white') + 
-                    '; stroke:black;"/>';
+                    ((decoration.type === '*') ? '#000' : '#FFF') + 
+                    ';stroke:#000;"/>';
 
             } else { // Arrow head
                 var tip = Vec2(C.x + 1, C.y);
                 var up =  Vec2(C.x - 0.5, C.y - 0.35);
                 var dn =  Vec2(C.x - 0.5, C.y + 0.35);
                 svg += '<polygon points="' + tip + up + dn + 
-                    '" style="fill:black" transform="rotate(' + decoration.angle + ',' + C + ')"/>\n';
+                    '" style="fill:#000" transform="rotate(' + decoration.angle + ',' + C + ')"/>\n';
             }
         }
         return svg;
@@ -1541,7 +1554,8 @@ function diagramToSVG(diagramString, alignmentHint) {
                     if (! isVertex(up) && ((upup === '-') || (upup === '_') || (grid(A.x - 1, A.y - 1) === '_') ||
                                            (grid(A.x + 1, A.y - 1) === '_') || 
                                            isBottomVertex(upup)) || isJump(upup)) {
-                        // Stretch up to almost reach the line above
+                        // Stretch up to almost reach the line above (if there is a decoration,
+                        // it will finish the gap)
                         A.y -= 0.5;
                     }
 
@@ -1627,13 +1641,44 @@ function diagramToSVG(diagramString, alignmentHint) {
                     do { grid.setUsed(x, y); ++x; ++y; } while (grid.isSolidBLineAt(x, y));
                     var B = Vec2(x - 1, y - 1);
 
-                    if ((grid(A.x, A.y - 1) === '/') || (grid(A.x - 1, A.y - 1) === '_') || (grid(A.x, A.y - 1) === '_')) {
-                        // Special case corner; continue half a cell more to connect
+                    var up = grid(A.x, A.y - 1);
+                    var uplt = grid(A.x - 1, A.y - 1);
+                    if ((up === '/') || (uplt === '_') || (up === '_') || 
+                        (! isVertex(grid(A)) && (isSolidHLine(uplt) || isSolidVLine(uplt)))) {
+                        // Continue half a cell more to connect for:
+                        //  ___   ___
+                        //  \        \    /      ----     |
+                        //   \        \   \        ^      |^
+                        //                          \     | \ 
                         A.x -= 0.5; A.y -= 0.5;
+                    } else if (isPoint(uplt)) {
+                        // Continue 1/4 cell more to connect for:
+                        //
+                        //  o
+                        //   ^
+                        //    \
+                        A.x -= 0.25; A.y -= 0.25;
                     }
-                    if ((grid(B.x, B.y + 1) === '/') || (grid(B.x + 1, B.y) === '_') || (grid(B.x - 1, B.y) === '_')) {
-                        // Special case corner; continue half a cell more to connect
+
+                    var dnrt = grid(B.x + 1, B.y + 1);
+                    if ((grid(B.x, B.y + 1) === '/') || (grid(B.x + 1, B.y) === '_') || 
+                        (grid(B.x - 1, B.y) === '_') || 
+                        (! isVertex(grid(B)) && (isSolidHLine(dnrt) || isSolidVLine(dnrt)))) {
+                        // Continue half a cell more to connect for:
+                        //                       \      \ |
+                        //  \       \     \       v      v|
+                        //   \__   __\    /      ----     |
+                        //                                
+
                         B.x += 0.5; B.y += 0.5;
+                    } else if (isPoint(dnrt)) {
+                        // Continue 1/4 cell more to connect for:
+                        //
+                        //    \
+                        //     v
+                        //      o
+
+                        B.x += 0.25; B.y += 0.25;
                     }
 
                     pathSet.insert(new Path(A, B));
@@ -1652,15 +1697,51 @@ function diagramToSVG(diagramString, alignmentHint) {
                     do { grid.setUsed(x, y); ++x; --y; } while (grid.isSolidDLineAt(x, y));
                     var B = Vec2(x - 1, y + 1);
 
-                    if ((grid(B.x, B.y - 1) === '\\') || (grid(B.x, B.y - 1) === '_') || (grid(B.x + 1, B.y - 1) === '_')) {
-                        // Special case corner; continue half a cell more to connect
+                    var up = grid(B.x, B.y - 1);
+                    var uprt = grid(B.x + 1, B.y - 1);
+                    if ((up === '\\') || (up === '_') || (uprt === '_') || 
+                        (! isVertex(grid(B)) && (isSolidHLine(uprt) || isSolidVLine(uprt)))) {
+
+                        // Continue half a cell more to connect at:
+                        //     __   __  ---     |
+                        //    /      /   ^     ^|
+                        //   /      /   /     / |
+
                         B.x += 0.5; B.y -= 0.5;
+                    } else if (isPoint(uprt)) {
+
+                        // Continue 1/4 cell more to connect at:
+                        //
+                        //       o
+                        //      ^
+                        //     /
+
+                        B.x += 0.25; B.y -= 0.25;
                     }
-                    if ((grid(A.x, A.y + 1) === '\\') || (grid(A.x - 1, A.y) === '_') || (grid(A.x + 1, A.y) === '_')) {
-                        // Special case corner; continue half a cell more to connect
+
+                    var dnlt = grid(A.x - 1, A.y + 1);
+                    if ((grid(A.x, A.y + 1) === '\\') || (grid(A.x - 1, A.y) === '_') || (grid(A.x + 1, A.y) === '_') ||
+                        (! isVertex(grid(A)) && (isSolidHLine(dnlt) || isSolidVLine(dnlt)))) {
+
+                        // Continue half a cell more to connect at:
+                        //               /     \ |
+                        //    /  /      v       v|
+                        // __/  /__   ----       | 
+
                         A.x -= 0.5; A.y += 0.5;
+                    } else if (isPoint(dnlt)) {
+
+                        // Continue 1/4 cell more to connect at:
+                        //
+                        //       /
+                        //      v
+                        //     o
+
+                        A.x -= 0.25; A.y += 0.25;
                     }
+
                     pathSet.insert(new Path(A, B));
+
                     // Continue the search from the end x+1,y-1
                 }
             }
@@ -1881,11 +1962,23 @@ function diagramToSVG(diagramString, alignmentHint) {
                         } else if (pathSet.upEndsAt(x, y)) {
                             decorationSet.insert(x, y, '>', 270);
                             grid.setUsed(x, y);
+                        } else if (pathSet.diagonalUpEndsAt(x + 0.5, y - 0.5)) {
+                            decorationSet.insert(x + 0.5, y - 0.5, '>', 270 + DIAGONAL_ANGLE);
+                            grid.setUsed(x, y);
+                        } else if (pathSet.diagonalUpEndsAt(x + 0.25, y - 0.25)) {
+                            decorationSet.insert(x + 0.25, y - 0.25, '>', 270 + DIAGONAL_ANGLE);
+                            grid.setUsed(x, y);
                         } else if (pathSet.diagonalUpEndsAt(x, y)) {
                             decorationSet.insert(x, y, '>', 270 + DIAGONAL_ANGLE);
                             grid.setUsed(x, y);
                         } else if (pathSet.backDiagonalUpEndsAt(x, y)) {
                             decorationSet.insert(x, y, c, 270 - DIAGONAL_ANGLE);
+                            grid.setUsed(x, y);
+                        } else if (pathSet.backDiagonalUpEndsAt(x - 0.5, y - 0.5)) {
+                            decorationSet.insert(x - 0.5, y - 0.5, c, 270 - DIAGONAL_ANGLE);
+                            grid.setUsed(x, y);
+                        } else if (pathSet.backDiagonalUpEndsAt(x - 0.25, y - 0.25)) {
+                            decorationSet.insert(x - 0.25, y - 0.25, c, 270 - DIAGONAL_ANGLE);
                             grid.setUsed(x, y);
                         } else if (pathSet.verticalPassesThrough(x, y)) {
                             // Only try this if all others failed
@@ -1902,8 +1995,20 @@ function diagramToSVG(diagramString, alignmentHint) {
                         } else if (pathSet.diagonalDownEndsAt(x, y)) {
                             decorationSet.insert(x, y, '>', 90 + DIAGONAL_ANGLE);
                             grid.setUsed(x, y);
+                        } else if (pathSet.diagonalDownEndsAt(x - 0.5, y + 0.5)) {
+                            decorationSet.insert(x - 0.5, y + 0.5, '>', 90 + DIAGONAL_ANGLE);
+                            grid.setUsed(x, y);
+                        } else if (pathSet.diagonalDownEndsAt(x - 0.25, y + 0.25)) {
+                            decorationSet.insert(x - 0.25, y + 0.25, '>', 90 + DIAGONAL_ANGLE);
+                            grid.setUsed(x, y);
                         } else if (pathSet.backDiagonalDownEndsAt(x, y)) {
                             decorationSet.insert(x, y, '>', 90 - DIAGONAL_ANGLE);
+                            grid.setUsed(x, y);
+                        } else if (pathSet.backDiagonalDownEndsAt(x + 0.5, y + 0.5)) {
+                            decorationSet.insert(x + 0.5, y + 0.5, '>', 90 - DIAGONAL_ANGLE);
+                            grid.setUsed(x, y);
+                        } else if (pathSet.backDiagonalDownEndsAt(x + 0.25, y + 0.25)) {
+                            decorationSet.insert(x + 0.25, y + 0.25, '>', 90 - DIAGONAL_ANGLE);
                             grid.setUsed(x, y);
                         } else if (pathSet.verticalPassesThrough(x, y)) {
                             // Only try this if all others failed
@@ -1992,7 +2097,7 @@ function diagramToSVG(diagramString, alignmentHint) {
 
 
 /* xcode.min.js */
-var HIGHLIGHT_STYLESHEET = "<style>.hljs{display:block;overflow-x:auto;padding:0.5em;background:#fff;color:black;-webkit-text-size-adjust:none}.hljs-comment{color:#006a00}.hljs-keyword,.hljs-literal,.nginx .hljs-title{color:#aa0d91}.method,.hljs-list .hljs-title,.hljs-tag .hljs-title,.setting .hljs-value,.hljs-winutils,.tex .hljs-command,.http .hljs-title,.hljs-request,.hljs-status,.hljs-name{color:#008}.hljs-envvar,.tex .hljs-special{color:#660}.hljs-string{color:#c41a16}.hljs-tag .hljs-value,.hljs-cdata,.hljs-filter .hljs-argument,.hljs-attr_selector,.apache .hljs-cbracket,.hljs-date,.hljs-regexp{color:#080}.hljs-sub .hljs-identifier,.hljs-pi,.hljs-tag,.hljs-tag .hljs-keyword,.hljs-decorator,.ini .hljs-title,.hljs-shebang,.hljs-prompt,.hljs-hexcolor,.hljs-rule .hljs-value,.hljs-symbol,.hljs-symbol .hljs-string,.hljs-number,.css .hljs-function,.hljs-function .hljs-title,.coffeescript .hljs-attribute{color:#1c00cf}.hljs-class .hljs-title,.smalltalk .hljs-class,.hljs-type,.hljs-typename,.hljs-tag .hljs-attribute,.hljs-doctype,.hljs-class .hljs-id,.hljs-built_in,.setting,.hljs-params,.clojure .hljs-attribute{color:#5c2699}.hljs-variable{color:#3f6e74}.css .hljs-tag,.hljs-rule .hljs-property,.hljs-pseudo,.hljs-subst{color:#000}.css .hljs-class,.css .hljs-id{color:#9b703f}.hljs-value .hljs-important{color:#ff7700;font-weight:bold}.hljs-rule .hljs-keyword{color:#c5af75}.hljs-annotation,.apache .hljs-sqbracket,.nginx .hljs-built_in{color:#9b859d}.hljs-preprocessor,.hljs-preprocessor *,.hljs-pragma{color:#643820}.tex .hljs-formula{background-color:#eee;font-style:italic}.diff .hljs-header,.hljs-chunk{color:#808080;font-weight:bold}.diff .hljs-change{background-color:#bccff9}.hljs-addition{background-color:#baeeba}.hljs-deletion{background-color:#ffc8bd}.hljs-comment .hljs-doctag{font-weight:bold}.method .hljs-id{color:#000}</style>";
+var HIGHLIGHT_STYLESHEET = "<style>.hljs{display:block;overflow-x:auto;padding:0.5em;background:#fff;color:#000;-webkit-text-size-adjust:none}.hljs-comment{color:#006a00}.hljs-keyword,.hljs-literal,.nginx .hljs-title{color:#aa0d91}.method,.hljs-list .hljs-title,.hljs-tag .hljs-title,.setting .hljs-value,.hljs-winutils,.tex .hljs-command,.http .hljs-title,.hljs-request,.hljs-status,.hljs-name{color:#008}.hljs-envvar,.tex .hljs-special{color:#660}.hljs-string{color:#c41a16}.hljs-tag .hljs-value,.hljs-cdata,.hljs-filter .hljs-argument,.hljs-attr_selector,.apache .hljs-cbracket,.hljs-date,.hljs-regexp{color:#080}.hljs-sub .hljs-identifier,.hljs-pi,.hljs-tag,.hljs-tag .hljs-keyword,.hljs-decorator,.ini .hljs-title,.hljs-shebang,.hljs-prompt,.hljs-hexcolor,.hljs-rule .hljs-value,.hljs-symbol,.hljs-symbol .hljs-string,.hljs-number,.css .hljs-function,.hljs-function .hljs-title,.coffeescript .hljs-attribute{color:#1c00cf}.hljs-class .hljs-title,.smalltalk .hljs-class,.hljs-type,.hljs-typename,.hljs-tag .hljs-attribute,.hljs-doctype,.hljs-class .hljs-id,.hljs-built_in,.setting,.hljs-params,.clojure .hljs-attribute{color:#5c2699}.hljs-variable{color:#3f6e74}.css .hljs-tag,.hljs-rule .hljs-property,.hljs-pseudo,.hljs-subst{color:#000}.css .hljs-class,.css .hljs-id{color:#9b703f}.hljs-value .hljs-important{color:#ff7700;font-weight:bold}.hljs-rule .hljs-keyword{color:#c5af75}.hljs-annotation,.apache .hljs-sqbracket,.nginx .hljs-built_in{color:#9b859d}.hljs-preprocessor,.hljs-preprocessor *,.hljs-pragma{color:#643820}.tex .hljs-formula{background-color:#eee;font-style:italic}.diff .hljs-header,.hljs-chunk{color:#808080;font-weight:bold}.diff .hljs-change{background-color:#bccff9}.hljs-addition{background-color:#baeeba}.hljs-deletion{background-color:#ffc8bd}.hljs-comment .hljs-doctag{font-weight:bold}.method .hljs-id{color:#000}</style>";
 
 if (! window.alreadyProcessedMarkdeep) {
     window.alreadyProcessedMarkdeep = true;
