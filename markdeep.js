@@ -946,9 +946,6 @@ function markdeepToHTML(str, elementMode) {
         // TABLES: line with | over line containing only | and -
         s = replaceTables(s);
 
-        // ASTERISK LIST: map to - list for processing TODO: Remove
-        // s = s.rp(/(\n[ \t]*)\*([ \t].+)/g, '$1-$2'); 
-
         // LISTS: lines with - or 1.
         s = replaceLists(s);
 
@@ -1031,6 +1028,13 @@ function removeLeadingSpace(str) {
 function diagramToSVG(diagramString, alignmentHint) {
     // Clean up diagramString if line endings are ragged
     diagramString = equalizeLineLengths(diagramString);
+
+    // Temporarily replace 'o' that is surrounded by other text
+    // with another character to avoid processing it as a point 
+    // decoration. This will be replaced in the final svg and is
+    // faster than checking each neighborhood each time.
+    var HIDE_O = '\ue004';
+    diagramString = diagramString.rp(/([a-z]|[A-Z])o([a-z]|[A-Z])/g, '$1' + HIDE_O + '$2');
 
     /** Pixels per character */
     var SCALE   = 8;
@@ -2091,6 +2095,9 @@ function diagramToSVG(diagramString, alignmentHint) {
     } // if
 
     svg += '</g></svg>';
+
+    svg = svg.rp(new RegExp(HIDE_O, 'g'), 'o');
+
 
     return svg;
 }
